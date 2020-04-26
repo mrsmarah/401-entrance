@@ -6,11 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+    <%item.forEach(item=>{%>
     <section>
-        <%item.forEach(item=>{%>
-            <p><%=item.name%></p>
-            <button><a href="/details/<%=item.id%>"></a>details</button>
-        <%})%>
+            <p><%=item.level%></p>
+            <button type='submit'><a href="/details/<%=item.id%>">details</a></button>
     </section>
+    <%})%>
 </body>
 </html>
