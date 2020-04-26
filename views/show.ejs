@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section>
+            <%item.forEach(item =>{%>
+            <form action="/add" method='POST'>
+            <input type="hidden" name="name"><p><%=item.name%></p>
+            <input type="hidden"name="img"><img src="<%=item.img%>" alt="">
+            <input type="hidden" name="level"><p><%=item.level%></p>
+            <button> Add</button>
+            <%})%>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

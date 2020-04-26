@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section>
+            <p><%=item.name%></p>
+            <img src="<%=item.img%>" alt="">
+            <p><%=item.level%></p>
+    </section>
+   
+    <section>
+        <form action="/delete/<%=item.id%>?_method=delete" method="POST">
+            <button>delete</button>
+        </form>
+    </section>
+</body>
+</html>
