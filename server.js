@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
         });
         res.render('show.ejs',{ item : dataArr});
     })
-    .catch((err)=>errorHandler(err,req,res));
+    .catch((err)=>{errorHandler(err,req,res)});
 })
 
 app.post('/add',(req,res)=>{
@@ -38,17 +38,17 @@ app.post('/add',(req,res)=>{
             client.query(SQL,values).then((results)=>{
                 res.redirect('/');
             })
-            .catch((err)=>errorHandler(err,req,res));
+            .catch((err)=>{errorHandler(err,req,res)});
         }
-       
-    }).catch((err)=>errorHandler(err,req,res));
+        
+    }).catch((err)=>{errorHandler(err,req,res)});
 })
 
 app.get('/favorites',(req,res)=>{
     const SQL = 'SELECT * FROM digimon;';
     client.query(SQL).then((results)=>{
         res.render('favorites.ejs',{ item : results.rows});
-    }).catch((err)=>errorHandler(err,req,res));
+    }).catch((err)=>{errorHandler(err,req,res)});
 });
 
 app.get('/details/:id',(req,res)=>{
@@ -56,7 +56,7 @@ app.get('/details/:id',(req,res)=>{
     const values = [req.params.id];
     client.query(SQL,values).then((results)=>{
         res.render('details.ejs',{ item : results.rows[0]});
-    }).catch((err)=>errorHandler(err,req,res));
+    }).catch((err)=>{errorHandler(err,req,res)});
 });
 
 app.put('/update/:id',(req,res)=>{
@@ -64,7 +64,7 @@ app.put('/update/:id',(req,res)=>{
     const values = [req.body.name, req.body.img,req.body.level ,req.params.id];
     client.query(SQL,values).then((results)=>{
         res.redirect(`/details/${req.params.id}`)
-    }).catch((err)=>errorHandler(err,req,res));
+    }).catch((err)=>{errorHandler(err,req,res)});
 });
 
 
@@ -73,7 +73,7 @@ app.get('/edit/:id',(req,res)=>{
     const values = [req.params.id];
     client.query(SQL,values).then((results)=>{
         res.render('edit.ejs',{ item : results.rows[0]});
-    }).catch((err)=>errorHandler(err,req,res));
+    }).catch((err)=>{errorHandler(err,req,res)});
 });
 
 app.delete('/delete/:id',(req,res)=>{
@@ -81,7 +81,7 @@ app.delete('/delete/:id',(req,res)=>{
     const values = [req.params.id];
     client.query(SQL,values).then((results)=>{
         res.redirect('/');
-    }).catch((err)=>errorHandler(err,req,res));
+    }).catch((err)=>{errorHandler(err,req,res)});
 });  
 
 
@@ -103,5 +103,4 @@ function Digimon(data){
     this.name=data.name;
     this.img=data.img;
     this.level=data.level; 
-
 }

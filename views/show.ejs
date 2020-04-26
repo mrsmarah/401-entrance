@@ -10,9 +10,9 @@
         <section>
             <%item.forEach(item =>{%>
             <form action="/add" method='POST'>
-            <input type="hidden" name="name"><p><%=item.name%></p>
-            <input type="hidden"name="img"><img src="<%=item.img%>" alt="">
-            <input type="hidden" name="level"><p><%=item.level%></p>
+            <input type="hidden" name="name" value="<%=item.name%>"><p><%=item.name%></p>
+            <input type="hidden"name="img" value="<%=item.img%>"><img src="<%=item.img%>" alt="">
+            <input type="hidden" name="level" value="<%=item.level%>"><p><%=item.level%></p>
             <button> Add</button>
             <%})%>
             </form>
