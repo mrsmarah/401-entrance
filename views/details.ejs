@@ -11,6 +11,10 @@
             <img src="<%=item.img%>" alt="">
             <p><%=item.level%></p>
     </section>
+    <section>
+            <button><a href="/edit/<%=item.id%>">update</a></button>
+        </form>
+    </section>
    
     <section>
         <form action="/delete/<%=item.id%>?_method=delete" method="POST">
